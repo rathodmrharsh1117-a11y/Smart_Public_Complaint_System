@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Report community problems and track their progress with CivicConnect." />
+  <title>CivicConnect — Public Complaint Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar"><div class="topbar-inner"><span>🚨 In danger? Call <a href="tel:112">112</a> (Emergency) · <a href="tel:100">100</a> Police · <a href="tel:101">101</a> Fire · <a href="tel:108">108</a> Ambulance</span><span class="topbar-right"><a href="tel:+91 98256 64714">📞 Complaint helpline: +91 98256 64714</a><span>🕘 Support: Mon–Sat, 9 AM – 6 PM</span><a href="mailto:help@civicconnect.example">✉ help@civicconnect.example</a></span></div></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="CivicConnect home">
+      <span class="brand-icon">✦</span><span>Civic<span class="brand-accent">Connect</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <button class="nav-link home-link active" data-section="homeSection"><span aria-hidden="true">🏠</span> Home</button>
+      <button class="nav-link" data-section="complaintsSection">Track complaints</button>
+      <button class="nav-link" data-section="authoritySection">Authority desk</button>
+    </nav>
+    <a class="header-call" href="tel:+91 98256 64714" aria-label="Call complaint helpline +91 98256 64714"><span class="hc-icon">📞</span><span class="hc-text"><small>Complaint helpline</small><strong>+91 98256 64714</strong></span></a>
+    <button class="header-cta" id="headerReportBtn"><span>＋</span> Report an issue</button>
+  </header>
+
+  <main id="main">
+    <section id="homeSection" class="section">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="live-dot"></span> YOUR VOICE. YOUR COMMUNITY.</div>
+          <h1>Let’s make our<br /><span>neighbourhood better.</span></h1>
+          <p>See a problem in your community? Report it, follow its progress, and help the right people take action.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="heroReportBtn">Report a problem <span>↗</span></button>
+            <button class="btn btn-outline" id="heroTrackBtn">Track a complaint <span>→</span></button>
+          </div>
+          <div class="trust-note"><span class="trust-check">✓</span> Every report gets a unique reference ID.</div>
+          <ul class="hero-chips"><li>🔒 Privacy-first</li><li>⚡ Quick to file</li><li>📍 Track in real time</li></ul>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of a clean, safe neighbourhood">
+          <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="hill hill-back"></div><div class="hill hill-front"></div>
+          <div class="road"></div><div class="sidewalk"></div>
+          <div class="house house-one"><div class="roof"></div><div class="house-body"><div class="window"></div><div class="door"></div></div></div>
+          <div class="house house-two"><div class="roof"></div><div class="house-body"><div class="window"></div><div class="door"></div></div></div>
+          <div class="tree tree-one"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+          <div class="tree tree-two"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+          <div class="pin pin-one">✓</div><div class="pin pin-two">!</div>
+          <div class="visual-caption"><span class="caption-icon">⌖</span><div><strong>A better place to live</strong><small>Starts with one report</small></div></div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon icon-blue">▤</div><div><p>Total reports</p><strong id="totalReports">0</strong><small>Submitted in this portal</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-amber">◷</div><div><p>In progress</p><strong id="progressReports">0</strong><small>Being reviewed or resolved</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-green">✓</div><div><p>Resolved</p><strong id="resolvedReports">0</strong><small>Marked as fixed</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-purple">⌖</div><div><p>Issue categories</p><strong>8+</strong><small>Community concerns</small></div></article>
+      </div>
+
+      <section class="content-section">
+        <div class="section-heading"><div><span class="eyebrow">COMMUNITY FIRST</span><h2>What can you report?</h2><p>Tell us about public issues that affect safety, cleanliness, or daily life.</p></div><button class="subtle-link" id="categoriesReportBtn">Report an issue <span>↗</span></button></div>
+        <div class="category-grid">
+          <button class="category-card" data-category="Roads & Potholes"><span class="category-emoji bg-orange">🚧</span><strong>Roads & potholes</strong><small>Damaged roads, open manholes</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Garbage & Sanitation"><span class="category-emoji bg-green">♻️</span><strong>Garbage & sanitation</strong><small>Overflowing bins, litter, drainage</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Streetlights"><span class="category-emoji bg-yellow">💡</span><strong>Streetlights</strong><small>Broken lights, dark streets</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Public Safety"><span class="category-emoji bg-red">🛡️</span><strong>Public safety</strong><small>Hazards and unsafe public areas</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Water Supply"><span class="category-emoji bg-blue">💧</span><strong>Water supply</strong><small>Leaks, waterlogging, supply issues</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Noise Disturbance"><span class="category-emoji bg-purple">🔊</span><strong>Noise disturbance</strong><small>Persistent disruptive noise</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Public Property"><span class="category-emoji bg-teal">🏙️</span><strong>Public property</strong><small>Damaged signs, benches, parks</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Other"><span class="category-emoji bg-gray">✦</span><strong>Other concern</strong><small>Anything affecting the community</small><span class="card-arrow">↗</span></button>
+        </div>
+      </section>
+
+      <section class="how-section">
+        <div class="section-heading"><div><span class="eyebrow">SIMPLE. TRANSPARENT. LOCAL.</span><h2>How it works</h2></div></div>
+        <div class="steps-grid">
+          <div class="step-card"><span class="step-number">01</span><div class="step-illustration">📝</div><h3>Report the issue</h3><p>Share the category, location, and details so others can understand the problem.</p></div>
+          <div class="step-card"><span class="step-number">02</span><div class="step-illustration">🔎</div><h3>Track progress</h3><p>Use your reference ID to check the latest status and authority updates.</p></div>
+          <div class="step-card"><span class="step-number">03</span><div class="step-illustration">🤝</div><h3>Community improves</h3><p>Authorities can review reports, prioritize work, and record resolution notes.</p></div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading"><div><span class="eyebrow">WHY CIVICCONNECT</span><h2>Built for citizens and authorities</h2><p>A clear, simple way to raise issues and keep everyone informed.</p></div></div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-icon">🔎</span><h3>Full transparency</h3><p>Follow each complaint from Submitted to Resolved with public authority notes.</p></article>
+          <article class="feature-card"><span class="feature-icon">🆔</span><h3>Unique reference ID</h3><p>Every report gets its own ID so you can check progress any time.</p></article>
+          <article class="feature-card"><span class="feature-icon">🔒</span><h3>Privacy respected</h3><p>Name and contact details are optional. Share only what you are comfortable with.</p></article>
+          <article class="feature-card"><span class="feature-icon">📱</span><h3>Works on any device</h3><p>A responsive design that feels natural on phones, tablets and desktops.</p></article>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div><span class="eyebrow">SEE SOMETHING? SAY SOMETHING.</span><h2>One report can fix a street.</h2><p>Takes under two minutes. No account needed.</p></div>
+        <button class="btn btn-primary" id="ctaReportBtn">Report an issue now <span>↗</span></button>
+      </section>
+
+      <section class="content-section" id="helplines">
+        <div class="section-heading"><div><span class="eyebrow">NEED URGENT HELP?</span><h2>Emergency helplines</h2><p>This portal is not monitored in real time. For danger to life or property, call directly.</p></div></div>
+        <div class="help-grid">
+          <a class="help-card" href="tel:112"><span>🆘</span><strong>112</strong><small>National emergency</small></a>
+          <a class="help-card" href="tel:100"><span>👮</span><strong>100</strong><small>Police</small></a>
+          <a class="help-card" href="tel:101"><span>🚒</span><strong>101</strong><small>Fire</small></a>
+          <a class="help-card" href="tel:108"><span>🚑</span><strong>108</strong><small>Ambulance</small></a>
+          <a class="help-card" href="tel:181"><span>👩</span><strong>181</strong><small>Women helpline</small></a>
+        </div>
+      </section>
+
+      <section class="how-section" id="faq">
+        <div class="section-heading"><div><span class="eyebrow">GOT QUESTIONS?</span><h2>Frequently asked questions</h2></div></div>
+        <div class="faq-list">
+          <details class="faq"><summary>Do I need an account to report an issue?</summary><p>No. You can submit a report without signing up. Name and contact details are optional.</p></details>
+          <details class="faq"><summary>How do I check the status of my complaint?</summary><p>Open “Track complaints” and enter the reference ID shown after you submit your report.</p></details>
+          <details class="faq"><summary>Is my report sent to a real authority?</summary><p>No. This is a demonstration version: reports are stored only in your browser. A live version would connect to a municipal backend.</p></details>
+          <details class="faq"><summary>What should I write in the description?</summary><p>Give the exact location, when you noticed the problem and how it affects people. Avoid sensitive personal data.</p></details>
+          <details class="faq"><summary>What if it is an emergency?</summary><p>Call 112 (or 100, 101, 108) immediately. Do not use this portal for urgent danger.</p></details>
+        </div>
+      </section>
+    </section>
+
+    <section id="complaintsSection" class="section hidden">
+      <div class="page-banner"><div><span class="eyebrow">TRANSPARENCY & FOLLOW-UP</span><h1>Track complaints</h1><p>Look up your report using its reference ID, or browse recent reports in this demo.</p></div><div class="banner-symbol">⌕</div></div>
+      <div class="lookup-panel">
+        <label for="trackInput">Complaint reference ID</label>
+        <div class="lookup-row"><input id="trackInput" placeholder="e.g. CC-20261014-1234" /><button class="btn btn-primary" id="trackBtn">Find complaint →</button></div>
+        <p class="helper-text">Your reference ID is shown after you submit a complaint.</p>
+        <div id="trackResult" class="track-result hidden"></div>
+      </div>
+      <div class="call-panel">
+        <div class="call-panel-icon">📞</div>
+        <div class="call-panel-text"><span class="eyebrow">PREFER TO TALK?</span><h3>Call to know where your complaint has reached</h3><p>Our helpline team can tell you the current stage, the department handling it and the next step. Keep your <strong>reference ID</strong> ready.</p>
+          <ul><li>🕘 Mon–Sat, 9 AM – 6 PM</li><li>🆔 Quote your reference ID</li><li>🗣 Hindi · Gujarati · English</li></ul></div>
+        <a class="btn btn-primary call-panel-btn" href="tel:+910000000000">Call +91 00000 00000</a>
+      </div>
+      <div class="list-heading"><div><h2>Recent community reports</h2><p>Demo records are visible to help you explore the interface.</p></div><select id="publicStatusFilter" aria-label="Filter complaints by status"><option value="all">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div>
+      <div id="publicComplaintList" class="complaint-list"></div>
+      <div id="publicEmpty" class="empty-panel hidden"><span>⌕</span><strong>No complaints found</strong><p>Try another status or submit a new report.</p></div>
+    </section>
+
+    <section id="authoritySection" class="section hidden">
+      <div class="page-banner authority-banner"><div><span class="eyebrow">DEMO ADMIN WORKSPACE</span><h1>Authority desk</h1><p>Review incoming complaints, prioritize issues, and keep citizens updated.</p></div><div class="banner-symbol">⚙</div></div>
+      <div class="demo-warning"><span>ⓘ</span><div><strong>Demonstration mode</strong><p>This front-end demo has no secure authentication or central database. Status changes are saved only in this browser.</p></div></div>
+      <div class="authority-stats" id="authorityStats"></div>
+      <div class="authority-toolbar"><div><h2>Complaint management</h2><p>Update a report’s status and add an authority note.</p></div><div class="toolbar-filters"><input id="adminSearch" placeholder="Search ID, title, or location..." /><select id="adminStatusFilter"><option value="all">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div></div>
+      <div id="authorityList" class="authority-list"></div>
+      <div id="authorityEmpty" class="empty-panel hidden"><span>✓</span><strong>No matching complaints</strong><p>New submissions will appear here.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-news"><div><strong>Get community updates</strong><p>Occasional news about resolved issues and new features. No spam.</p></div>
+      <form id="newsForm" class="news-form" novalidate><label class="sr-only" for="newsEmail">Email address</label><input id="newsEmail" type="email" placeholder="you@example.com" autocomplete="email" /><button class="btn btn-primary" type="submit">Subscribe</button></form></div>
+    <div class="footer-grid">
+      <div class="footer-col footer-about"><div class="footer-brand"><span class="brand-icon">✦</span><strong>CivicConnect</strong></div>
+        <p>A community-focused platform to report public issues, follow their progress and keep neighbourhoods safe, clean and well-maintained.</p>
+        <div class="social" aria-label="Social media"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M14 8h2V5h-2.5C11.6 5 10.5 6.3 10.5 8.2V10h-2v3h2v6h3v-6h2.2l.4-3h-2.6V8.5c0-.3.2-.5.5-.5z"/></svg></a><a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X (Twitter)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19"/></svg></a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><circle cx="7" cy="7.5" r="1.4"/><rect x="5.9" y="10" width="2.2" height="8"/><path d="M11 10h2v1.2c.5-.9 1.4-1.4 2.6-1.4 2 0 2.9 1.2 2.9 3.4V18h-2.2v-4.3c0-1-.4-1.7-1.4-1.7s-1.7.7-1.7 1.8V18H11z"/></svg></a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10.5 9.5v5l4-2.5z" fill="currentColor"/></svg></a><a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a8 8 0 00-6.9 12L4 20l4.1-1.1A8 8 0 1012 4z"/><path d="M9.2 9.2c.2 2.4 2.4 4.6 4.6 4.9l1-1.1-1.5-.8-.6.6c-.8-.3-1.7-1.2-2-2l.6-.6-.8-1.5z"/></svg></a></div></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><button data-go="homeSection">Overview</button></li><li><button data-open-report>Report an issue</button></li><li><button data-go="complaintsSection">Track complaints</button></li><li><button data-go="authoritySection">Authority desk</button></li><li><button data-go="homeSection#faq">FAQs</button></li></ul></div>
+      <div class="footer-col"><h4>Report a problem</h4><ul>
+        <li><button data-fcat="Roads & Potholes">Roads &amp; potholes</button></li><li><button data-fcat="Garbage & Sanitation">Garbage &amp; sanitation</button></li><li><button data-fcat="Streetlights">Streetlights</button></li><li><button data-fcat="Water Supply">Water supply</button></li><li><button data-fcat="Public Safety">Public safety</button></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="contact-list">
+        <li>📍 Civic Centre, Main Road, Your City</li><li>✉ <a href="mailto:help@civicconnect.example">help@civicconnect.example</a></li><li>☎ Complaint helpline: <a href="tel:+910000000000">+91 00000 00000</a></li><li>🕘 Mon–Sat, 9 AM – 6 PM</li><li>🆘 <button data-go="homeSection#helplines">Emergency helplines</button></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 CivicConnect • Student project</span>
+      <nav aria-label="Legal"><button data-info="about">About</button><button data-info="privacy">Privacy</button><button data-info="terms">Terms</button><button data-info="access">Accessibility</button></nav>
+      <span class="disclaimer">Demo only. For emergencies, contact local emergency services directly.</span></div>
+  </footer>
+
+  <dialog id="reportModal" class="modal">
+    <form id="reportForm">
+      <div class="modal-top"><div><span class="eyebrow">MAKE YOUR VOICE HEARD</span><h2>Report a community issue</h2><p>Provide clear details so the issue can be understood.</p></div><button type="button" class="close-btn" id="closeReport" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <div class="field-group full"><label for="reportTitle">Issue title <span>*</span></label><input id="reportTitle" required maxlength="90" placeholder="e.g. Streetlight not working near the park" /></div>
+        <div class="field-group"><label for="reportCategory">Category <span>*</span></label><select id="reportCategory" required><option value="">Choose category</option></select></div>
+        <div class="field-group"><label for="reportPriority">Priority <span>*</span></label><select id="reportPriority" required><option value="Normal">Normal</option><option value="High">High</option><option value="Urgent">Urgent</option></select></div>
+        <div class="field-group full"><label for="reportLocation">Location / landmark <span>*</span></label><input id="reportLocation" required maxlength="150" placeholder="Street, area, nearby landmark, city" /></div>
+        <div class="field-group full"><label for="reportDescription">Describe the issue <span>*</span></label><textarea id="reportDescription" required rows="4" maxlength="1200" placeholder="What happened? When did you notice it? How does it affect the community?"></textarea><small>Do not include sensitive personal information or accusations you cannot substantiate.</small></div>
+        <div class="field-group"><label for="reportName">Your name (optional)</label><input id="reportName" maxlength="80" placeholder="Name or leave blank" /></div>
+        <div class="field-group"><label for="reportContact">Contact (optional)</label><input id="reportContact" maxlength="100" placeholder="Email or phone" /></div>
+      </div>
+      <div class="privacy-note"><span>🔒</span><p>Only share contact details if you want to be contacted. This demo stores reports in your browser and does not send them to a real authority.</p></div>
+      <div class="modal-actions"><button type="button" class="btn btn-light" id="cancelReport">Cancel</button><button type="submit" class="btn btn-primary">Submit report <span>↗</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="successModal" class="modal success-modal">
+    <button type="button" class="close-btn success-close" id="closeSuccess" aria-label="Close">×</button>
+    <div class="success-mark">✓</div><span class="eyebrow">REPORT SAVED IN THIS DEMO</span><h2>Thank you for speaking up.</h2><p>Your complaint has been recorded locally. Keep this reference ID to track it later.</p>
+    <div class="reference-box"><span>YOUR REFERENCE ID</span><strong id="newReference">CC-00000000-0000</strong><button id="copyReference" type="button">Copy ID</button></div>
+    <p class="success-call">📞 Want an update by phone? Call <a href="tel:+910000000000">+91 00000 00000</a> and quote this ID.</p>
+    <div class="modal-actions"><button class="btn btn-light" id="successDone">Done</button><button class="btn btn-primary" id="successTrack">Track complaint →</button></div>
+  </dialog>
+  <dialog id="updateModal" class="modal">
+    <form id="updateForm">
+      <div class="modal-top"><div><span class="eyebrow">AUTHORITY UPDATE</span><h2>Update complaint</h2><p id="updateComplaintTitle"></p></div><button type="button" class="close-btn" id="closeUpdate" aria-label="Close">×</button></div>
+      <input type="hidden" id="updateComplaintId" />
+      <div class="field-group"><label for="updateStatus">Status</label><select id="updateStatus"><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div>
+      <div class="field-group"><label for="updateNote">Public update / resolution note</label><textarea id="updateNote" rows="4" maxlength="800" placeholder="Explain what has been checked or what action was taken..."></textarea></div>
+      <div class="modal-actions"><button type="button" class="btn btn-light" id="cancelUpdate">Cancel</button><button type="submit" class="btn btn-primary">Save update</button></div>
+    </form>
+  </dialog>
+  <dialog id="infoModal" class="modal"><div class="modal-top"><div><span class="eyebrow">CIVICCONNECT</span><h2 id="infoTitle"></h2></div><button type="button" class="close-btn" id="closeInfo" aria-label="Close">×</button></div><p id="infoBody" class="info-body"></p><div class="modal-actions"><button class="btn btn-primary" id="infoOk">Got it</button></div></dialog>
+  <a class="fab-call" href="tel:+910000000000" aria-label="Call complaint helpline"><span>📞</span><b>Call helpline</b></a>
+  <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+  <script src="extras.js"></script>
+</body>
+</html>
